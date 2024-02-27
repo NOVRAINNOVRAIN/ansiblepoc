@@ -1,14 +1,10 @@
----
 - name: Stop Azure VM
-  hosts: azure_rm_virtual_machines
+  hosts: localhost
   connection: local
-  gather_facts: no
   tasks:
-    - name: Stop Azure VM
+    - name: Stop virtual machine
       azure_rm_virtualmachine:
-        name: "Windows-network-F5"
-        resource_group_name: "WE-NT-9AAG023864-01-RG-F-NETWORK"
-        state: "stopped"
-        force: yes
-      delegate_to: localhost
+        resource_group: {{ WE-NT-9AAG023864-01-RG-F-NETWORK }}
+        name: {{ Windows-network-F5 }}
+        allocated: no
 
