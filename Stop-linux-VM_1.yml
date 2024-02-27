@@ -4,7 +4,7 @@
   tasks:
     - name: Stop virtual machine
       azure_rm_virtualmachine:
-        resource_group: {{ WE-NT-9AAG023864-01-RG-F-NETWORK }}
-        name: {{ Windows-network-F5 }}
+        resource_group: WE-NT-9AAG023864-01-RG-F-NETWORK
+        name: Windows-network-F5
         allocated: no
 
