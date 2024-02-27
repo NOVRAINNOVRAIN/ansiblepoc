@@ -1,0 +1,13 @@
+---
+- name: Stop Azure VM
+  hosts: azure_rm_virtual_machines
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Stop Azure VM
+      azurerm_vm:
+        name: "your_vm_name"
+        resource_group_name: "your_resource_group"
+        state: "stopped"
+        force: yes
+      delegate_to: localhost
