@@ -6,8 +6,8 @@
   tasks:
     - name: Stop Azure VM
       azurerm_vm:
-        name: "your_vm_name"
-        resource_group_name: "your_resource_group"
+        name: "F5"
+        resource_group_name: "WE-NT-9AAG023864-01-RG-F-NETWORK"
         state: "stopped"
         force: yes
       delegate_to: localhost
