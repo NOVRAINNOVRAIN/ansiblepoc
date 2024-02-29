@@ -1,4 +1,4 @@
-  - name: Create a resource group
+- name: Create a resource group
     azure_rm_resourcegroup:
       name: "test"
       location: "West Europe"
