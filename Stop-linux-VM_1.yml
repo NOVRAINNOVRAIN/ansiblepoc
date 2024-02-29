@@ -1,4 +1,9 @@
-  - name: Create a resource group
-    azure_rm_resourcegroup:
-      name: "test"
-      location: "West Europe"
+- name: Stop Azure VM
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Stop virtual machine
+      azure_rm_virtualmachine:
+        resource_group: WE-NT-9AAG023864-01-RG-F-NETWORK
+        name: Windows-network-machine
+        allocated: no
