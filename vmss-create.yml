@@ -16,12 +16,12 @@
       azure_rm_virtualnetwork:
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
-        address_prefixes: "18.0.0.0/16"
+        address_prefixes: "10.8.0.0/16"
     - name: Add subnet
       azure_rm_subnet:
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
-        address_prefix: "18.0.1.0/24"
+        address_prefix: "10.8.1.0/24"
         virtual_network: "{{ vmss_name }}"
     - name: Create public IP address
       azure_rm_publicipaddress:
