@@ -77,8 +77,8 @@
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
         vm_size: Standard_DS1_v2
-        admin_username: "{{ admin_username }}"
-        admin_password: "{{ admin_password }}"
+        admin_username: azureuser
+        admin_password: P@ssw0rd12345
         ssh_password_enabled: true
         capacity: 2
         virtual_network_name: "{{ vmss_name }}"
