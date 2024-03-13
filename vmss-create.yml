@@ -1,6 +1,6 @@
 - hosts: localhost
   vars:
-    resource_group: myResourceGrouptest
+    resource_group: myResourceGrouptest1
     vmss_name: myvmscalesetname
     vmss_lb_name: myScaleSetLb
     location: eastus
