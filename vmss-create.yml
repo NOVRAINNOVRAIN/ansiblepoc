@@ -1,7 +1,7 @@
 - hosts: localhost
   vars:
     resource_group: test123
-    vmss_name: test123
+    vmss_name: test123edmz
     vmss_lb_name: myScaleSetLb
     location: eastus
     admin_username: azureuser
