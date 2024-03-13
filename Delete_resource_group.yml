@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+ vars:
+    resource_group: test123
+    location: eastus 
+  tasks:
+    - name: Deleting resource group - "{{resource_group}}"
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        force_delete_nonempty: true
+        state: absent
+
+
+
+      
