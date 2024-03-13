@@ -1,5 +1,5 @@
 - hosts: localhost
- vars:
+  vars:
     resource_group: test123
     location: eastus 
   tasks:
