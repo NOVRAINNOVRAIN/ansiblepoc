@@ -1,6 +1,6 @@
 - hosts: localhost
   vars:
-    resource_group: myResourceGrouptest1
+    resource_group: test123
     vmss_name: myvmscalesetname
     vmss_lb_name: myScaleSetLb
     location: eastus
@@ -16,12 +16,12 @@
       azure_rm_virtualnetwork:
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
-        address_prefixes: "10.8.0.0/16"
+        address_prefixes: "10.0.0.0/16"
     - name: Add subnet
       azure_rm_subnet:
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
-        address_prefix: "10.8.3.0/24"
+        address_prefix: "10.0.1.0/24"
         virtual_network: "{{ vmss_name }}"
     - name: Create public IP address
       azure_rm_publicipaddress:
@@ -77,8 +77,8 @@
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
         vm_size: Standard_DS1_v2
-        admin_username: azureuser
-        admin_password: P@ssw0rd12345
+        admin_username: "{{ admin_username }}"
+        admin_password: "{{ admin_password }}"
         ssh_password_enabled: true
         capacity: 2
         virtual_network_name: "{{ vmss_name }}"
