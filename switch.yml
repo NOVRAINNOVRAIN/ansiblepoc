@@ -1,6 +1,6 @@
 ---
 - name: Show interfaces
-  hosts: 10.138.207.110
+  hosts: localhost
   connection: network_cli
   tasks:
     - name: use ios commands
