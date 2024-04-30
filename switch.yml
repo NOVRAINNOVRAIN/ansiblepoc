@@ -1,6 +1,6 @@
 ---
 - name: Gather Cisco 2960X Switch Version Information
-  hosts: cisco_2960x_switches
+  hosts: 10.138.207.110
   gather_facts: no
 
   tasks:
