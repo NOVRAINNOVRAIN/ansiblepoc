@@ -1,9 +1,15 @@
 ---
-- name: Show interfaces
-  hosts: 10.138.207.110
-  connection: network_cli
+- name: Gather Cisco 2960X Switch Version Information
+  hosts: cisco_2960x_switches
+  gather_facts: no
+
   tasks:
-    - name: use ios commands
+    - name: Execute show version on Cisco 2960X Switch
       ios_command:
         commands:
-          - show ip interface brief
+          - show version
+      register: show_version_output
+
+    - name: Display Version Information
+      debug:
+        var: show_version_output.stdout_lines
