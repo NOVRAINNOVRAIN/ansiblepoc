@@ -1,6 +1,6 @@
 ---
 - name: Gather Cisco Switch Version Information
-  hosts: 10.138.207.110
+  hosts: "{{ hostname }}"
   gather_facts: no
   tasks:
     - name: Execute show version on Cisco Switch
