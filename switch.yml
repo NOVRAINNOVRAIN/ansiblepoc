@@ -1,9 +1,14 @@
 ---
-- name: Show interfaces
-  hosts: 10.138.207.110
-  connection: network_cli
+- name: Gather Cisco Switch Version Information
+  hosts:  10.138.207.110
+  gather_facts: no
   tasks:
-    - name: use ios commands
-      ios_command:
+    - name: Execute show version on Cisco Switch
+      netconf_config:
         commands:
-          - show run
+          - show version
+      register: switch_version
+
+    - name: Display Version Information
+      debug:
+        var: switch_version.stdout_lines
