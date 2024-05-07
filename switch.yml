@@ -1,6 +1,6 @@
 ---
 - name: Get ARP information
-  hosts: all
+  hosts: 10.138.207.110
   gather_facts: false
 
   tasks:
