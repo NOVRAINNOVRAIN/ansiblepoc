@@ -1,18 +1,12 @@
-
-- name: "Demonstrate connecting to switches"
+---
+- name: save result to a file
   hosts: all
-  gather_facts: no
+  gather_facts: false
 
   tasks:
-    ###
-    # Collect data
-    #
+   - name: show cur config
+     raw: "show clock"
 
-    - name: Gather facts (ios)
-      cisco.ios.ios_facts:
-      when: ansible_network_os == 'cisco.ios.ios'
+     register: print_output
 
-    - name: Run Cisco NXOS command
-      cisco.ios.ios_command:
-        commands: show ip int br
-      when: ansible_network_os == 'cisco.ios.ios'
+   - debug: var=print_output.stdout_lines
