@@ -1,15 +1,12 @@
 ---
-- name: Gather Cisco 2960X Switch Version Information
+- name: Get ARP information
   hosts: 10.138.207.110
-  gather_facts: no
+  gather_facts: false
 
   tasks:
-    - name: Execute show version on Cisco 2960X Switch
-      ios_command:
-        commands:
-          - show version
-      register: show_version_output
+    - name: show arp
+      raw: "show arp"
 
-    - name: Display Version Information
-      debug:
-        var: show_version_output.stdout_lines
+      register: print_output
+
+    -  debug: var=print_output.stdout_lines
