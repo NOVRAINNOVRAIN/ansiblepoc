@@ -1,10 +1,9 @@
 ---
-- name: save result to a file
+- name: Show interfaces
   hosts: all
-  gather_facts: false
-
+  connection: network_cli
   tasks:
-   - name: show cur config
-     raw: "show clock"
-
-     register: print_output
+    - name: use ios commands
+      ios_command:
+        commands:
+          - show ip interface brief
