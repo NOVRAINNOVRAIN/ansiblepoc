@@ -5,7 +5,7 @@
 
   tasks:
    - name: show cur config
-     raw: "show clock"
+     raw: "show run"
 
      register: print_output
 
