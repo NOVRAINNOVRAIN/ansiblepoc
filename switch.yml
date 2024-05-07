@@ -1,12 +1,10 @@
 ---
-- name: Get ARP information
+- name: save result to a file
   hosts: all
   gather_facts: false
 
   tasks:
-    - name: show arp
-      raw: "show arp"
+   - name: show cur config
+     raw: "show clock"
 
-      register: print_output
-
-    -  debug: var=print_output.stdout_lines
+     register: print_output
