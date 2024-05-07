@@ -2,7 +2,7 @@
 - name: show clock 
   hosts: all    
   gather_facts: false
-  connection: local
+
   tasks: 
     - name: show clock
       ios_command:   
