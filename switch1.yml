@@ -11,3 +11,8 @@
     - name: Gather facts (ios)
       cisco.ios.ios_facts:
       when: ansible_network_os == 'cisco.ios.ios'
+
+    - name: Run Cisco NXOS command
+      cisco.ios.ios_command:
+        commands: show ip int br
+      when: ansible_network_os == 'cisco.ios.ios'
