@@ -1,10 +1,11 @@
 ---
- - hosts: all
-   gather_facts: false
-   tasks:
-   - name: save config
-     ios_config:
-       save_when: modified
-   - name: backup switch config
-     ios_config:
-       backup: true 
+- name: Get ARP information
+ hosts: all
+ gather_facts: false
+
+ tasks:
+   - name: show arp
+     raw: "show arp"
+     register: print_output
+
+-  debug: var=print_output.stdout_lines
