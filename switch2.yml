@@ -1,1 +1,14 @@
+---
+- name: save result to a file
+  hosts: all
+  gather_facts: false
+  vars:
+    ansible_ssh_args: "-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss -o Ciphers=+3des-cbc"
 
+  tasks:
+   - name: show cur config
+     raw: "show run"
+
+     register: print_output
+
+   - debug: var=print_output.stdout_lines
