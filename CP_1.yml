@@ -1,11 +1,9 @@
----
-- hosts: all
-connection: httpapi
-- name: Add, Set or Delete Host
-check_point.mgmt.cp_mgmt_host:
-name: My test host
-color: Red
-comments: Ansible Playbook
-ip_address: 192.168.191.1
-auto_publish_session: true
-state: present
+- name: Add a new network object 
+  hosts: all 
+  tasks: 
+    - name: Add a new network 
+      checkpoint_host_rule: 
+        name: "New Network" 
+        ip_address: "172.16.0.0/16" 
+        layer: Network 
+        state: present 
