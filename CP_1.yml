@@ -1,5 +1,6 @@
 ---
-- hosts: chkp-mgmt-srv.local
+- hosts: all
+  ansible_checkpoint_domain: Global
   connection: httpapi
 
 
