@@ -1,10 +1,11 @@
 ---
-hosts: all
-connection: httpapi
-
-# Add or delete host object in Check Point management server
-- name: add-host or delete-host
+- hosts: all
+    connection: httpapi
+- name: Add, Set or Delete Host
     check_point.mgmt.cp_mgmt_host:
-      color: red
-      name: My test host
-      ip_address: 192.168.1.1
+        name: My test host
+        color: Red
+        comments: Ansible Playbook
+        ip_address: 192.168.191.1
+        auto_publish_session: true
+        state: present
