@@ -1,10 +1,8 @@
 ---
-- hosts: all
+- name: add-network
+  hosts: all
   ansible_checkpoint_domain: Global
   connection: httpapi
-
-
-- name: add-network
   cp_mgmt_network:
     name: New Network 1
     state: present
