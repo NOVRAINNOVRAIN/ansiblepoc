@@ -1,9 +1,11 @@
-- name: Add a new network object 
-  hosts: all 
-  tasks: 
-    - name: Add a new network 
-      checkpoint_host_rule: 
-        name: "New Network" 
-        ip_address: "172.16.0.0/16" 
-        layer: Network 
-        state: present 
+---
+- hosts: chkp-mgmt-srv.local
+  connection: httpapi
+
+
+- name: add-network
+  cp_mgmt_network:
+    name: New Network 1
+    state: present
+    subnet: 192.0.2.0
+    subnet_mask: 255.255.255.0
