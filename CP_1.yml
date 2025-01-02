@@ -1,10 +1,14 @@
----
-- name: add-network
+---  
+- name: Check Firewall Traffic Allowance  
   hosts: all
   ansible_checkpoint_domain: Global
-  connection: httpapi
-  cp_mgmt_network:
-    name: New Network 1
-    state: present
-    subnet: 192.0.2.0
-    subnet_mask: 255.255.255.0
+  gather_facts: no  
+  tasks:  
+    - name: Add, Set or Delete Host
+        check_point.mgmt.cp_mgmt_host:
+        name: My test host
+        color: Red
+        comments: Ansible Playbook
+        ip_address: 192.168.191.1
+        auto_publish_session: true
+        state: present
