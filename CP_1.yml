@@ -1,7 +1,4 @@
 
-collections:
-  - name: check_point.mgmt.cp_mgmt_mds
-  
 ---  
   - name: Manage Check Point Host Object  
     hosts: all
