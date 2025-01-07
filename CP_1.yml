@@ -1,13 +1,15 @@
-
----  
-  - name: Manage Check Point Host Object  
-    hosts: all
-    connection: httpapi  
-    gather_facts: no  
-    tasks:  
-      - name: Add or Delete Host Object in Check Point  
-        check_point.mgmt.cp_mgmt_host:  
-          name: "My test host"  
-          ip_address: "192.168.1.1"  
-          color: "red"  
-          state: present  # Change to 'absent' to delete the host  
+--- 
+- name: Manage Check Point Host Object  
+  hosts: all
+  connection: httpapi  
+  gather_facts: no  
+  tasks:  
+  - name: Manage Check Point Host
+    hosts: checkpoint
+    gather_facts: no
+    tasks:
+      - name: Add a new host
+        check_point.mgmt.cp_mgmt_checkpoint_host:
+          name: "MyHost"
+          ip_address: "192.168.1.1"
+          state: "present"
