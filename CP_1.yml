@@ -1,16 +1,19 @@
 ---  
-- name: Manage Check Point Host Object  
-  hosts: all
-  connection: httpapi  
-  gather_facts: no  
-  tasks:  
-    - name: Add or Delete Host Object in Check Point  
-      check_point.mgmt.cp_mgmt_host:  
-        name: "My test host"  
-        ip_address: "192.168.1.1"  
-        color: "red"  
-        state: present  # Change to 'absent' to delete the host  
-      vars:  
-        ansible_httpapi_use_ssl: yes  
-        ansible_httpapi_validate_certs: no  
-        ansible_httpapi_port: 443  
+collections:
+  - name: check_point.mgmt.cp_mgmt_mds
+  
+  - name: Manage Check Point Host Object  
+    hosts: all
+    connection: httpapi  
+    gather_facts: no  
+    tasks:  
+      - name: Add or Delete Host Object in Check Point  
+        check_point.mgmt.cp_mgmt_host:  
+          name: "My test host"  
+          ip_address: "192.168.1.1"  
+          color: "red"  
+          state: present  # Change to 'absent' to delete the host  
+        vars:  
+          ansible_httpapi_use_ssl: yes  
+          ansible_httpapi_validate_certs: no  
+          ansible_httpapi_port: 443  
