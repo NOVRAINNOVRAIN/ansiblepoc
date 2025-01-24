@@ -11,4 +11,4 @@
         auto_publish_session: true
 
       vars: 
-        ansible_checkpoint_domain: "SMC User"
+        ansible_checkpoint_domain: "Global"
