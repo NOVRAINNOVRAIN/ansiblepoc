@@ -1,11 +1,15 @@
---- 
-- name: Manage Check Point Host
+---
+- name: Add host to Check Point MDS
   hosts: all
   gather_facts: no
   tasks:
     - name: Add a new host
-      check_point.mgmt.cp_mgmt_checkpoint_host:
-        name: "MyHost"
-        ip_address: "192.168.1.1"
-        state: "present"
+      check_point.mgmt.cp_mgmt_host:
+        name: "new_host"
+        ip_address: "192.168.1.100"
+        state: present
+      register: host_result
 
+    - name: Show result
+      debug:
+        msg: "{{ host_result }}"
