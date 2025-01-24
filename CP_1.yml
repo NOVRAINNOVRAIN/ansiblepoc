@@ -1,15 +1,14 @@
 ---
-- name: Add host to Check Point MDS
+- name: playbook name
   hosts: all
-  gather_facts: no
+  connection: httpapi
   tasks:
-    - name: Add a new host
-      check_point.mgmt.cp_mgmt_host:
-        name: "new_host"
-        ip_address: "192.168.1.100"
-        state: present
-      register: host_result
+    - name: task to have network
+      check_point.mgmt.cp_mgmt_network:
+        name: "network name"
+        subnet: "4.1.76.0"
+        mask_length: 24
+        auto_publish_session: true
 
-    - name: Show result
-      debug:
-        msg: "{{ host_result }}"
+      vars: 
+        ansible_checkpoint_domain: "SMC User"
